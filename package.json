@@ -25,9 +25,11 @@
   "homepage": "https://github.com/masterfung/hapi-firebase#readme",
   "dependencies": {
     "firebase": "^2.2.5",
+    "handlebars": "^3.0.3",
     "hapi": "^8.5.2",
     "joi": "^6.4.2",
-    "lodash": "^3.9.3"
+    "lodash": "^3.9.3",
+    "path": "^0.11.14"
   },
   "devDependencies": {
     "good": "^6.1.3",
