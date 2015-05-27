@@ -1,0 +1,36 @@
+{
+  "name": "hapi-firebase",
+  "version": "0.0.1",
+  "description": "HapiJS & Firebase",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masterfung/hapi-firebase.git"
+  },
+  "keywords": [
+    "hapi",
+    "node",
+    "javascript",
+    "firebase"
+  ],
+  "author": "Tsung Hung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/masterfung/hapi-firebase/issues"
+  },
+  "homepage": "https://github.com/masterfung/hapi-firebase#readme",
+  "dependencies": {
+    "firebase": "^2.2.5",
+    "hapi": "^8.5.2",
+    "joi": "^6.4.2",
+    "lodash": "^3.9.3"
+  },
+  "devDependencies": {
+    "good": "^6.1.3",
+    "good-console": "^5.0.1"
+  }
+}
