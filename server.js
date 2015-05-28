@@ -1,17 +1,21 @@
 var Hapi = require('hapi');
 var path = require('path');
-var firebase = require('firebase');
+var Joi = require('Joi');
+var firebase = require('./firebase');
 var server = new Hapi.Server();
+
 server.connection({
     port: 3000,
     host: "localhost"
 });
+
 server.views({
     engines: {
         html: require('handlebars')
     },
     path: path.join(__dirname, 'public')
 });
+
 server.route({
     path: '/{param*}',
     method: 'GET',
@@ -22,6 +26,29 @@ server.route({
         }
     }
 });
+
+server.route({
+    path: '/login/{param*}',
+    method: 'GET',
+    handler: {
+        directory: {
+            path: path.join(__dirname, 'public/templates/login/'),
+            index: true
+        }
+    }
+});
+
+server.route({
+    path: '/login/{param*}',
+    method: 'POST',
+    handler: {
+        directory: {
+            path: path.join(__dirname, 'public/templates/login/'),
+            index: true
+        }
+    }
+});
+
 server.register([
     {
         register: require('good'),
