@@ -41,11 +41,16 @@ server.route({
 server.route({
     path: '/login/{param*}',
     method: 'POST',
-    handler: {
-        directory: {
-            path: path.join(__dirname, 'public/templates/login/'),
-            index: true
-        }
+    config: {
+      handler: function(req, res) {
+
+      },
+      validate: {
+          payload: {
+            email: Joi.string().email()
+            password: Joi.string().alphanum(),.min(8)
+          }
+      }
     }
 });
 
