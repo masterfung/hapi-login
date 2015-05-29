@@ -24,11 +24,16 @@
   },
   "homepage": "https://github.com/masterfung/hapi-firebase#readme",
   "dependencies": {
+    "bcrypt": "^0.8.3",
     "firebase": "^2.2.5",
     "handlebars": "^3.0.3",
     "hapi": "^8.5.2",
+    "hapi-auth-basic": "^2.0.0",
+    "hapi-auth-cookie": "^2.2.0",
     "joi": "^6.4.2",
     "lodash": "^3.9.3",
+    "mongoose": "^4.0.4",
+    "passport-local-mongoose": "^1.0.0",
     "path": "^0.11.14"
   },
   "devDependencies": {
