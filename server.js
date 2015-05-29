@@ -1,17 +1,27 @@
 var Hapi = require('hapi');
 var Good = require('good');
+var path = require('path');
 var Routes = require('./routes');
 var Config = require('./config');
 // var User = require('./models/user').User;
+
+var publicPath = path.join(__dirname, 'public');
 
 // Create a server with a host and port
 var server = new Hapi.Server();
 server.connection({ port: Config.server.port });
 
+server.views({
+    engines: {
+        html: require('handlebars')
+    },
+    path: publicPath
+});
+
 // Register the plugin
 server.register(require('hapi-auth-cookie'), function (err) {
     if (err) {
-        throw err;
+        console.log("Hapu Auth Cookie Error:", err);
     }
 
     // Set our strategy

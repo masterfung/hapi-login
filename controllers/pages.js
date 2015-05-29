@@ -21,7 +21,7 @@ exports.index = {
 		'<h1> Hi there! </h1>' +
 		'<p> Would you like to <a href="login">login</a> or <a href="register">register</a>? </p>';
 
-    return reply.view('index');
+    return reply.view('index', {title: 'Main'});
 	}
 };
 
@@ -48,7 +48,7 @@ exports.login = {
 		'	<p><input type="submit"   value="Login"></p>' +
 		'</form>';
 
-   		return reply(form);
+   		return reply.view('templates/login/index', {title: "Login"});
 	}
 };
 
