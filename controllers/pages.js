@@ -19,7 +19,7 @@ exports.index = {
 
 		var data =
 		'<h1> Hi there! </h1>' +
-		'<p> Would you like to <a href="login">login</a> or <a href="register">register</a>? </p>';
+		'<p> Would you like to <a href="login">login</a> or <a href="signup">signup</a>? </p>';
 
     return reply.view('index', {title: 'Main'});
 	}
@@ -53,7 +53,7 @@ exports.login = {
 };
 
 /**
- * Handles a call to /register and shows a registration form
+ * Handles a call to /signup and shows a registration form
  */
 exports.signup = {
 	auth: {
@@ -68,11 +68,11 @@ exports.signup = {
 		}
 
 		var form =
-		'<h1> Register </h1>' +
-		'<form method="post" action="register">' +
+		'<h1> Sign Up </h1>' +
+		'<form method="post" action="signup">' +
 		'	<p><input type="text"     name="email"    value="" placeholder="E-mail"></p>' +
 		'	<p><input type="password" name="password" value="" placeholder="Password"></p>' +
-		'	<p><input type="submit"   value="Register"></p>' +
+		'	<p><input type="submit"   value="signup"></p>' +
 		'</form>';
 
     	return reply(form);

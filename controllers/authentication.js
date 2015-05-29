@@ -47,13 +47,13 @@ exports.logout = {
 };
 
 /**
- * Responds to POST /register and creates a new user.
+ * Responds to POST /signup and creates a new user.
  */
 exports.signup = {
 	validate: {
 		payload: {
             email: Joi.string().email().required(),
-            password: Joi.string().required()
+            password: Joi.string().min(8).required()
         }
 	},
 	handler: function(request, reply) {
