@@ -1,3 +1,5 @@
+// Go and sign up on mongolab (for free) account and fill detail below
+
 module.exports = {
 	mongo: {
 		username: '<dbusername>',
@@ -7,6 +9,6 @@ module.exports = {
 	},
 	server: {
 		hostname: 'localhost',
-		port: 1337
+		port: 3000
 	}
 };
