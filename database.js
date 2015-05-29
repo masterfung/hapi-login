@@ -1,14 +1,14 @@
 var Mongoose = require('mongoose');
 var Config = require('./config');
 
-//load database
+// load database
 // Mongoose.connect('mongodb://localhost/test');
 Mongoose.connect('mongodb://' + Config.mongo.username + ':' + Config.mongo.password + '@' + Config.mongo.url + '/' + Config.mongo.database);
 var db = Mongoose.connection;
 
 db.on('error', console.error.bind(console, 'Connection error'));
 
-db.once('open', function callback() {
+db.once('open', function () {
 	console.log("Connection with database succeeded.");
 });
 
