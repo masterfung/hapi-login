@@ -17,11 +17,7 @@ exports.index = {
 			return reply.redirect('/dashboard');
 		}
 
-		var data =
-		'<h1> Hi there! </h1>' +
-		'<p> Would you like to <a href="login">login</a> or <a href="signup">signup</a>? </p>';
-
-    return reply.view('index', {title: 'Main'});
+        return reply.view('index');
 	}
 };
 
@@ -40,15 +36,7 @@ exports.login = {
 			return reply.redirect('/dashboard');
 		}
 
-		var form =
-		'<h1> Login </h1>' +
-		'<form method="post" action="login">' +
-		'	<p><input type="text"     name="email"    value="" placeholder="E-mail"></p>' +
-		'	<p><input type="password" name="password" value="" placeholder="Password"></p>' +
-		'	<p><input type="submit"   value="Login"></p>' +
-		'</form>';
-
-   		return reply.view('templates/login/index', {title: "Login"});
+   		return reply.view('templates/login');
 	}
 };
 
@@ -67,36 +55,28 @@ exports.signup = {
 			return reply.redirect('/dashboard');
 		}
 
-		var form =
-		'<h1> Sign Up </h1>' +
-		'<form method="post" action="signup">' +
-		'	<p><input type="text" name="email"    value="" placeholder="E-mail"></p>' +
-		'	<p><input type="password" name="password" value="" placeholder="Password"></p>' +
-		'	<p><input type="submit" value="Sign Up"></p>' +
-		'</form>';
-
-    	return reply.view('templates/signup/index', {title: 'Sign Up'});
+    	return reply.view('templates/signup');
 	}
 };
 
 /**
- * Handles a call to /dashboard and shows super secret stuff
+ * Handles a call to /dashboard
  */
-exports.secret = {
+exports.dashboard = {
 	auth: 'session',
 	handler: function (request, reply) {
-		var data =
-		'<h1> Batman\'s super secret hideout! </h1>' +
-		'<p> Welcome to this totally secret hideout, ' + request.auth.credentials.email + '. Would you like to <a href="logout">leave</a>? </p>';
 
-    	return reply(data);
+    	return reply.view('templates/dashboard');
 	}
 };
 
+/**
+ * Handles all assets related to public files so no 403 errors will result
+ */
 exports.assets = {
 	handler: {
 		directory: {
 			path: './public'
 		}
 	}
-}
+};
