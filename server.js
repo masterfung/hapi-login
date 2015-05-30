@@ -13,7 +13,7 @@ server.connection({ port: Config.server.port });
 
 server.views({
     engines: {
-        html: require('handlebars')
+        jade: require('jade')
     },
     path: publicPath
 });
@@ -21,7 +21,7 @@ server.views({
 // Register the plugin
 server.register(require('hapi-auth-cookie'), function (err) {
     if (err) {
-        console.log("Hapu Auth Cookie Error:", err);
+        console.log("Hapi Auth Cookie Error:", err);
     }
 
     // Set our strategy
@@ -39,7 +39,7 @@ server.ext('onRequest', function (request, reply) {
     return reply.continue();
 });
 
-//Routes
+// Load the routes
 server.route(Routes.endpoints);
 
 // Good logging & Start the server
