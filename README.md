@@ -15,7 +15,7 @@ If you have not done this already, I would install nodemon. It is an awesome too
 git clone git@github.com:masterfung/hapi-login.git
 cd hapi-login
 npm install
-nodemon server.js
+npm start
 ```
 
 ##Feedback
