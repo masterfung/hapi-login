@@ -13,7 +13,7 @@ exports.index = {
 	handler: function (request, reply) {
 
 		if (request.auth.isAuthenticated) {
-			// The user is already logged in, redirect it to the hideout
+			// The user is already logged in, redirect it to the dashboard
 			return reply.redirect('/dashboard');
 		}
 
@@ -32,7 +32,7 @@ exports.login = {
 	handler: function (request, reply) {
 
 		if (request.auth.isAuthenticated) {
-			// The user is already logged in, redirect it to the hideout
+			// The user is already logged in, redirect it to the dashboard
 			return reply.redirect('/dashboard');
 		}
 
@@ -51,7 +51,7 @@ exports.signup = {
 	handler: function (request, reply) {
 
 		if (request.auth.isAuthenticated) {
-			// The user is already logged in, redirect it to the hideout
+			// The user is already logged in, redirect it to the dashboard
 			return reply.redirect('/dashboard');
 		}
 
@@ -78,5 +78,38 @@ exports.assets = {
 		directory: {
 			path: './public'
 		}
+	}
+};
+
+
+exports.about = {
+	auth: {
+		mode: 'try',
+		strategy: 'session'
+	},
+	handler: function (request, reply) {
+
+		if (request.auth.isAuthenticated) {
+			// The user is already logged in, redirect it to the dashboard
+			return reply.redirect('/dashboard');
+		}
+
+		return reply.view('templates/about');
+	}
+};
+
+exports.contact = {
+	auth: {
+		mode: 'try',
+		strategy: 'session'
+	},
+	handler: function (request, reply) {
+
+		if (request.auth.isAuthenticated) {
+			// The user is already logged in, redirect it to the dashboard
+			return reply.redirect('/dashboard');
+		}
+
+		return reply.view('templates/contact');
 	}
 };
