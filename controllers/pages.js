@@ -70,12 +70,12 @@ exports.signup = {
 		var form =
 		'<h1> Sign Up </h1>' +
 		'<form method="post" action="signup">' +
-		'	<p><input type="text"     name="email"    value="" placeholder="E-mail"></p>' +
+		'	<p><input type="text" name="email"    value="" placeholder="E-mail"></p>' +
 		'	<p><input type="password" name="password" value="" placeholder="Password"></p>' +
-		'	<p><input type="submit"   value="signup"></p>' +
+		'	<p><input type="submit" value="Sign Up"></p>' +
 		'</form>';
 
-    	return reply(form);
+    	return reply.view('templates/signup/index', {title: 'Sign Up'});
 	}
 };
 
@@ -92,3 +92,11 @@ exports.secret = {
     	return reply(data);
 	}
 };
+
+exports.assets = {
+	handler: {
+		directory: {
+			path: './public'
+		}
+	}
+}
