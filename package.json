@@ -30,6 +30,7 @@
     "hapi": "^8.5.2",
     "hapi-auth-basic": "^2.0.0",
     "hapi-auth-cookie": "^2.2.0",
+    "hapi-context-credentials": "^1.0.0",
     "jade": "^1.10.0",
     "joi": "^6.4.2",
     "lodash": "^3.9.3",
