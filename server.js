@@ -19,7 +19,10 @@ server.views({
 });
 
 // Register the plugin
-server.register(require('hapi-auth-cookie'), function (err) {
+server.register([
+    { register: require('hapi-auth-cookie') },
+    { register: require('hapi-context-credentials') }
+    ], function (err) {
     if (err) {
         console.log("Hapi Auth Cookie Error:", err);
     }
