@@ -3,7 +3,7 @@ var Config = require('./config');
 
 // load database
 // Mongoose.connect('mongodb://localhost/test');
-Mongoose.connect('mongodb://' + Config.mongo.username + ':' + Config.mongo.password + '@' + Config.mongo.url + '/' + Config.mongo.database);
+Mongoose.connect('mongodb://' + Config.get('/mongo/username') + ':' + Config.get('/mongo/password') + '@' + Config.get('/mongo/url') + '/' + Config.get('/mongo/database'));
 var db = Mongoose.connection;
 
 db.on('error', console.error.bind(console, 'Connection error'));

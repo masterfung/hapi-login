@@ -9,7 +9,7 @@ var publicPath = path.join(__dirname, 'public');
 
 // Create a server with a host and port
 var server = new Hapi.Server();
-server.connection({ port: Config.server.port });
+server.connection({ port: Config.get('/server/port') });
 
 server.views({
     engines: {
