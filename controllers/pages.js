@@ -1,7 +1,3 @@
-var path = require('path');
-
-var publicPath = path.join(__dirname, '../public');
-
 /**
  * Handles a call to / and shows some text with links to login and registration
  */
@@ -16,7 +12,6 @@ exports.index = {
 			// The user is already logged in, redirect it to the dashboard
 			return reply.redirect('/dashboard');
 		}
-
         return reply.view('index');
 	}
 };
@@ -64,8 +59,8 @@ exports.signup = {
  */
 exports.dashboard = {
 	auth: 'session',
-	handler: function (request, reply) {
 
+	handler: function (request, reply) {
     	return reply.view('templates/dashboard');
 	}
 };
@@ -89,11 +84,6 @@ exports.about = {
 	},
 	handler: function (request, reply) {
 
-		if (request.auth.isAuthenticated) {
-			// The user is already logged in, redirect it to the dashboard
-			return reply.redirect('/dashboard');
-		}
-
 		return reply.view('templates/about');
 	}
 };
@@ -105,11 +95,22 @@ exports.contact = {
 	},
 	handler: function (request, reply) {
 
-		if (request.auth.isAuthenticated) {
-			// The user is already logged in, redirect it to the dashboard
-			return reply.redirect('/dashboard');
-		}
-
 		return reply.view('templates/contact');
 	}
+};
+
+exports.profile = {
+    auth: {
+        mode: 'try',
+        strategy: 'session'
+    },
+    handler: function (request, reply) {
+
+        if (request.auth.isAuthenticated) {
+        	// The user is already logged in, redirect it to the dashboard
+            return reply.view('templates/profile');
+        }
+
+        return reply.view('templates/login');
+    }
 };
