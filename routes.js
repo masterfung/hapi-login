@@ -16,6 +16,7 @@ exports.endpoints = [
 	{ method: 'POST',   path: '/login',          config: Authentication.login },
 	{ method: 'GET',    path: '/logout',         config: Authentication.logout },
 	{ method: 'POST',   path: '/signup',         config: Authentication.signup },
+	{ method: 'POST',   path: '/profile',        config: Authentication.profile },
 
 	{ method: 'GET',    path: '/{param*}',       config: Pages.assets }
 ];
