@@ -1,3 +1,5 @@
+'use strict';
+
 var Hapi = require('hapi');
 var Good = require('good');
 var path = require('path');

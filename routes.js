@@ -1,3 +1,5 @@
+'use strict';
+
 var Pages = require('./controllers/pages');
 var Authentication = require('./controllers/authentication');
 
