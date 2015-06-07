@@ -55,7 +55,9 @@ exports.signup = {
 	validate: {
 		payload: {
             email: Joi.string().email().required(),
-            password: Joi.string().min(8).required()
+            password: Joi.string().min(8).required(),
+            firstName: Joi.string().min(2).max(20).required(),
+            lastName: Joi.string().min(2).max(20).required()
         }
 	},
 	handler: function(request, reply) {
@@ -63,7 +65,9 @@ exports.signup = {
 		// Create a new user, this is the place where you add firstName, lastName etc.
 		// Just don't forget to add them to the validator above.
 		var newUser = new User({
-			email: request.payload.email
+			email: request.payload.email,
+			firstName: request.payload.firstName,
+            lastName: request.payload.lastName
 		});
 
 		// The register function has been added by passport-local-mongoose and takes as first parameter
@@ -87,8 +91,8 @@ exports.profile = {
         payload: {
             email: Joi.string().email().required(),
             password: Joi.string().min(8).required(),
-            firstName: Joi.string().max(20).required(),
-            lastName: Joi.string().max(20).required(),
+            firstName: Joi.string().min(2).max(20).required(),
+            lastName: Joi.string().min(2).max(20).required(),
             address: Joi.string().alphanum().max(135).required(),
             city: Joi.string().max(25).required(),
             state: Joi.string().max(2).required(),
