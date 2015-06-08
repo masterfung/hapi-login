@@ -32,10 +32,18 @@ html
                      a(href='contact') Contact
 
                ul.nav.navbar-nav.navbar-right
-                  li
-                     a(href='login') Log In
-                  li
-                     a(href='signup') Sign Up
+                  if credentials
+                     li
+                        a(href='dashboard') Dashboard
+                     li
+                        a(href='profile') Profile
+                     li
+                        a(href='logout') Log Out
+                  else
+                     li
+                        a(href='login') Log In
+                     li
+                        a(href='signup') Sign Up
 
       .container
          block content
