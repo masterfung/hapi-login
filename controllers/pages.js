@@ -1,3 +1,5 @@
+var User = require('../models/user').User;
+
 /**
  * Handles a call to / and shows some text with links to login and registration
  */
@@ -108,6 +110,7 @@ exports.profile = {
 
         if (request.auth.isAuthenticated) {
         	// The user is already logged in, redirect it to the dashboard
+            var user;
             return reply.view('templates/profile');
         }
 
